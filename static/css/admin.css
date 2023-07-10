@@ -1,0 +1,22 @@
+@font-face { font-family: 'BYekan';
+src: url('../fonts/BYekan.eot');
+src: local('BYekan'), local('BYekan'), url('../fonts/BYekan.woff') format('woff'), url('../fonts/BYekan.ttf') format('truetype');}
+
+body {
+ font-family:BYekan;
+}
+
+a, textarea, button, td, th, select, p{
+  font-family:BYekan;
+}
+input, button, p{
+  font-family:BYekan !important;
+}
+
+.vIntegerField, select{
+  width: 36ch !important;
+}
+
+#id_slug, #id_title{
+  width: 108ch;
+}

@@ -1,0 +1,303 @@
+﻿
+<!DOCTYPE html>
+{% load static %}
+{% load thumbnail %}
+<html lang="fa">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="موسسه داده پرداز اصفهان ارائه دهنده دوره های آموزشی یادگیری ماشین و علوم داده.">
+    <!--<link rel="icon" type="image/png" href="images/favicon.png">-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#058b8c">
+    <meta name="google-site-verification" content="fbuPNCP0Q7e59c6DyRUgyrNM2ACTArJahJyYKGEhAXE" />
+    
+    {% block title %}<title>داده پرداز اصفهان</title>{% endblock %}
+    <link href="{% static 'css/plugins.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/rtl.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="body-inner">
+
+        <header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">
+            <div class="header-inner">
+                <div class="container">
+                    <div id="logo">
+                        <a href="{% url 'main:index' %}">
+                            <span class="logo-default">
+                                <img height="70" style="display: block;" src="{% static 'images/logo1.png' %}">
+                            </span>
+                            <span class="logo-dark">
+                                <img height="70" src="{% static 'images/logo1.png' %}">
+                            </span>
+                        </a>
+                    </div>
+
+
+                    
+
+                    <div class="header-extras">
+                        <ul>
+                            <li>
+                                <a id="btn-search" href="#"> <i class=""></i></a>
+                            </li>
+                            <li>
+                                <div class="p-dropdown">
+                                    <a href="#"><i class="icon-globe"></i><span>fa</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div id="mainMenu-trigger">
+                        <a class="lines-button x"><span class="lines"></span></a>
+                    </div>
+
+                    <div id="mainMenu">
+                        <div class="container">
+                            <nav>
+                                <ul>
+                                    <li><a href="{% url 'main:index' %}">خانه</a></li>
+                                    <li class="dropdown" ><a href="#">دوره ها</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'main:category' slug='همه' %}">همه</a></li>
+                                        {% for cat in cats %}
+                                        <li><a style="color: #fff" href="{% url 'main:category' slug=cat.slug %}">{{cat.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                    <li><a href="{% url 'main:gallery' %}">گالری</a></li>
+                                    <li><a href="{% url 'main:contract' %}">طرف قراردادها</a></li>
+                                    <li><a href="{% url 'main:about' %}">درباره ما</a></li>
+                                    <li><a href="{% url 'main:contact' %}">تماس با ما</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    
+        {% block content %}
+        <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="700">
+
+            <div class="slide kenburns" style="background-image:url({% static 'images/wall1.jpg' %});">
+                <div class="bg-overlay"></div>
+                <div class="container">
+                    <div class="slide-captions text-center text-light">
+
+                        <span class="strong">بهترین ها را از ما بخواهید</span>
+                        <h2 style="line-height: 1.5em" class="text-dark">موسسه آموزشی <br> داده پرداز اصفهان</h2>
+                        <a class="btn" href="javascript:$('#products')[0].scrollIntoView({behavior: 'smooth',});">دوره ها</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slide kenburns" style="background-image:url({% static 'images/wall3.png' %});">
+                <div class="bg-overlay"></div>
+                <div class="container">
+                    <div class="slide-captions text-center text-light">
+
+                        <span class="strong">بهترین سرمایه و تبلیغ ما رضایت‌مندی دانشجویان ماست</span>
+                        <h2 style="line-height: 1.5em" class="text-dark">موسسه آموزشی<br> داده پرداز اصفهان</h2>
+                        <a class="btn" href="javascript:$('#products')[0].scrollIntoView({behavior: 'smooth',});">دوره ها</a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide kenburns" style="background-image:url({% static 'images/wall2.png' %});">
+                <div class="bg-overlay"></div>
+                <div class="container">
+                    <div class="slide-captions text-center text-light">
+
+                        <span class="strong"> هدف ما پرورش توانایی ها و استعداد های شماست</span>
+                        <h2 style="line-height: 1.5em" class="text-dark">موسسه آموزشی<br> داده پرداز اصفهان</h2>
+                        <a class="btn" href="javascript:$('#products')[0].scrollIntoView({behavior: 'smooth',});">دوره ها</a>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <section id="welcome" class="p-b-0">
+            <div class="container">
+                <div class="heading-text heading-section text-center m-b-40" data-animate="fadeInUp">
+                    <h2>موسسه داده پرداز اصفهان</h2>
+                </div>
+                <div class="row mt-5" data-animate="fadeInUp">
+                    <div class="col-lg-6 text-center mt-4">
+                        <img class="img-fluid" style="border-radius: 10px;" src="{% static 'images/ansari.jpg' %}" alt="Welcome to POLO">
+                    </div>
+                    <div class="col-lg-6 text-center mt-4">
+                        <p class="lead text-justify">
+                            داده پرداز اصفهان بزرگ‌ترین رسانه دیجیتال آموزش مجازی در ایران است که از سال 1401 فعالیت خود را آغاز کرده است. هدف داده پرداز اصفهان در دسترس قرار دادن آموزش با کیفیت بالا برای همه‌ی فارسي‌زبانان است. ما اعتقاد داریم که هیچ کس نباید به خاطر هیچ چیز از لذت یاد گرفتن محروم شود. نباید سن و سال، مکان، موقعیت یا امکانات مالی فرد، وی را از یادگیری و موفقیت باز دارد.                            <br><br>
+
+                            ما افتخار این را داریم که جدیدترین آموزش های مرتبط با هوش مصنوعی، یادگیری ماشین، یادگیری عمیق و علوم داده را در اختیار علاقه مندان قرار دهیم.
+                        
+                        </p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <br>
+        <br>
+        <br>
+
+
+        
+        <section class="text-light p-t-150 p-b-150 " data-bg-parallax="{% static 'images/wall4.png' %}">
+            <div class="bg-overlay"></div>
+            <div class="container">
+            </div>
+        </section>
+
+
+
+
+        <section id="products" class="content background-grey">
+            <div class="container">
+                <div class="heading-text heading-section text-center" data-animate="fadeInUp">
+                    <h2>دوره های ما</h2>
+                    <span class="lead">
+                       از دوره ها مختلف ما دیدن فرمایید
+                       
+                    </span>
+                </div>
+                <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item" data-animate="fadeInUp" data-animate-delay="700">
+                    {% for item in items  %}
+                        <div class="post-item border">
+                            <div class="post-item-wrap">
+                                <div class="post-image">
+                                    <a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}">
+                                        {% thumbnail item.image "1200x800" crop="center" as im %} 
+                                        <img alt="" src="{{im.url}}">
+                                        {% endthumbnail %}
+                                    </a>
+                                    <span class="post-meta-category"><a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}">{{item.cat}}</a></span>
+                                </div>
+                                <div class="post-item-description">
+                                    <h2><a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}">{{item.title}}
+                                        </a></h2>
+                                    <a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}" class="item-link">اطلاعات بیشتر <i class="icon-chevron-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+                
+                </div>
+            </div>
+        </section>
+
+
+        <section class="p-t-60">
+            <div class="container">
+                <div class="heading-text heading-section text-center" data-animate="fadeInUp">
+                    <h2>طرف قراردادها</h2>
+                    <span class="lead">دانشگاه هایی که با ما همکاری داشته اند </span>
+                </div>
+                <div class="carousel client-logos" data-items="6" data-items-sm="4" data-items-xs="3" data-items-xxs="3"
+                    data-margin="20" data-arrows="false" data-autoplay="true" data-autoplay="1000" data-loop="true" data-animate="fadeInUp" data-animate-delay="700">
+                    {% for company in companies  %}
+                    <div> 
+                        {% thumbnail company.image "220x220" format="PNG" crop="center" as im %} 
+                        <a href="#"><img alt="" src="{{im.url}}"> </a>
+                        <p>{{company.name}}</p>
+                        {% endthumbnail %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        {% endblock %}
+
+        <footer id="footer">
+            <div class="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <p><a href="{% url 'main:index' %}">
+                                <img  height="100" src="{% static 'images/logo1.png' %}">
+                            </a></p>
+                            <p>موسسه داده پرداز اصفهان ارائه دهنده دوره های آموزشی یادگیری ماشین و علوم داده </p>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4">
+
+                            <div class="widget">
+                                <h4>صفحات</h4>
+                                <ul class="list">
+                                    <li><a href="{% url 'main:index' %}">خانه</a></li>
+                                    <li><a href="{% url 'main:gallery' %}">گالری</a></li>
+                                    <li><a href="{% url 'main:contract' %}">طرف قراردادها</a></li>
+                                    <li><a href="{% url 'main:about' %}">درباره ما</a></li>
+                                    <li><a href="{% url 'main:contact' %}">تماس با ما</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4">
+
+                            <div class="widget">
+                                <h4>دوره ها</h4>
+                                <ul class="list">
+                                    <li><a href="{% url 'main:category' slug='همه' %}">همه</a></li>
+                                    {% for cat in cats %}
+                                    <li><a href="{% url 'main:category' slug=cat.slug %}">{{cat.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4  col-lg-2 col-md-4">
+
+                            <div class="widget  widget-contact-us"
+                                style="background-image: url({% static 'images/world-map-dark.png' %}); background-position: 50% 20px; background-repeat: no-repeat">
+                                <h4>ارتباط با ما</h4>
+                                <ul class="list-icon">
+                                    <li><i class="fa fa-map-marker-alt"></i> 
+                                    اصفهان - دانشگاه اصفهان - دانشکده مهندسی کامپیوتر
+                                    </li>
+                                    <li><i class="fa fa-mobile"></i> 09100991499 </li>
+                                    <li><i class="far fa-envelope"></i> <a
+                                            href="mailto:dadepardaz@gmail.com">dadepardaz@gmail.com</a> </li>
+                                    
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+    </div>
+
+    <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+
+    <script src="{% static 'js/functions.js' %}"></script>
+</body>
+
+</html>

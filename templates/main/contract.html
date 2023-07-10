@@ -1,0 +1,42 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}<title> طرف قراردادها | داده پرداز اصفهان</title>{% endblock %}
+
+
+{% block content %}
+<section id="page-title" class="text-light" data-bg-parallax="{% static 'images/contract.jpg' %}">
+    <div class="container">
+        <div style="z-index: -1" class="bg-overlay"></div>
+        <div class="page-title">
+            <h1>طرف قراردادها</h1>
+            <p>داده پرداز اصفهان</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="p-t-60">
+    <div class="container">
+        <div class="heading-text heading-section text-center" data-animate="fadeInUp">
+            <h2>طرف قراردادها</h2>
+            <span class="lead">دانشگاه هایی که با ما همکاری داشته اند </span>
+        </div>
+        <div class="carousel client-logos" data-items="6" data-items-sm="4" data-items-xs="3" data-items-xxs="3"
+            data-margin="20" data-arrows="false" data-autoplay="true" data-autoplay="1000" data-loop="true" data-animate="fadeInUp" data-animate-delay="700">
+            {% for company in companies  %}
+            <div> 
+                {% thumbnail company.image "200x150" format="PNG" crop="center" as im %} 
+                <a href="#"><img alt="" src="{{im.url}}"> </a>
+                <p>{{company.name}}</p>
+                {% endthumbnail %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

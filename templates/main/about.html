@@ -1,0 +1,44 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% load thumbnail %}
+
+
+{% block title %}<title>درباره ما | داده پرداز اصفهان</title>{% endblock %}
+
+
+{% block content %}
+<section id="page-title" class="text-light" data-bg-parallax="{% static 'images/about.png' %}">
+    <div class="container">
+        <div style="z-index: -1" class="bg-overlay"></div>
+        <div class="page-title">
+            <h1>درباره ما</h1>
+            <p>داده پرداز اصفهان</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="welcome" class="p-b-0">
+    <div class="container">
+        <div class="heading-text heading-section text-center m-b-40" data-animate="fadeInUp">
+            <h2>موسسه آموزشی داده پرداز اصفهان</h2>
+        </div>
+        <div class="row mt-5" data-animate="fadeInUp">
+            <div class="col-lg-6 text-center mt-4">
+                <img class="img-fluid" style="border-radius: 10px;" src="{% static 'images/about.png' %}" alt="Welcome to POLO">
+            </div>
+            <div class="col-lg-6 text-center mt-4">
+                <p class="lead text-justify">
+                    ما اعتقاد داریم که دانش ماندگارترین ابزار تغییر است و می خواهیم با تمرکز بر گسترش سطوح آموزش دانشگاهی، نقش خود را در مسیر تغییر بازی کنیم. داده پرداز اصفهان همان دانش دانشگاهی در دسترس همگان است و هدف ما رسیدن به روزی است که دانش دانشگاهی بدون واسطه، در دسترس همگان باشد. ما خود را آغاز پایان آموزش سنتی در ایران و اولین قدم های شروع تعریف آینده از آموزش دانشگاهی می دانیم و این را نه تنها ما که تمام بیش از ۱,۴۰۰,۰۰۰ دانشجوی دانشگاه آنلاین داده پرداز اصفهان باورمند هستند.
+                <br>
+                <br>
+                آرمان داده پرداز اصفهان نه تنها تغییر اکنون و تعریف آینده آموزش دانشگاهی در ایران، بلکه توسعه همین تغییر به کل دنیا است. نسخه بین المللی داده پرداز اصفهان، هم اکنون در حال برنامه ریزی است و کارهای اولیه آن در شهر سندیگو ایالت کالیفرنیای آمریکا، توسط بخشی از تیم اجرایی و بنیانگذاری داده پرداز اصفهان مستقر در خارج از ایران، در حال پیشبرد گام به گام است. زبانهای «انگلیسی»، «ترکی» و «عربی» سه زبانی هستند که محور تمرکز نسخه جهانی داده پرداز اصفهان خواهند بود.
+                </p>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock content %}

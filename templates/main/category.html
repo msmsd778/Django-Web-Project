@@ -1,0 +1,60 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}<title> {{cat}} | داده پرداز اصفهان</title>{% endblock %}
+
+
+{% block content %}
+<section id="page-title" class="text-light" data-bg-parallax="{% static 'images/courses.png' %}">
+    <div class="container">
+        <div style="z-index: -1" class="bg-overlay"></div>
+        <div class="page-title">
+            <h1>دوره ها</h1>
+            <p>{{cat}}</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="page-content">
+    <div class="container">
+
+        <nav class="grid-filter gf-outline">
+            <ul>
+                <li {% if cat == 'همه' %}class="active"{% endif %}><a href="{% url 'main:category' slug='همه' %}" >همه</a></li>
+                {% for c in cats %}
+                <li {% if c == cat %}class="active"{% endif %}><a href="{% url 'main:category' slug=c.slug %}" >{{c.name}}</a></li>
+                {% endfor %}
+        </nav>
+
+        <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item" data-animate="fadeInUp" data-animate-delay="700">
+            {% for item in items  %}
+                <div class="post-item border">
+                    <div class="post-item-wrap">
+                        <div class="post-image">
+                            <a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}">
+                                {% thumbnail item.image "1200x800" crop="center" as im %} 
+                                <img alt="" src="{{im.url}}">
+                                {% endthumbnail %}
+                            </a>
+                            <span class="post-meta-category"><a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}">{{item.cat}}</a></span>
+                        </div>
+                        <div class="post-item-description">
+                            <h2><a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}">{{item.title}}
+                                </a></h2>
+                            <a href="{% url 'main:product' slug1=item.cat.slug slug2=item.slug %}" class="item-link">اطلاعات بیشتر <i class="icon-chevron-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
+        
+        </div>
+
+      
+    </div>
+</section>
+{% endblock content %}

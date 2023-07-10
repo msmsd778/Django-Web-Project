@@ -1,0 +1,52 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}<title> {{item.title}} | داده پرداز اصفهان</title>{% endblock %}
+
+
+{% block content %}
+<section id="page-title" class="text-light" data-bg-parallax="{% static 'images/courses.png' %}">
+    <div class="container">
+        <div style="z-index: -1" class="bg-overlay"></div>
+        <div class="page-title">
+            <h1>{{item.title}}</h1>
+            <p>{{item.cat}}</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="page-content" class="sidebar-right">
+    <div class="container">
+        <div class="row">
+
+            <div style="margin:auto" class="content col-lg-10 col-md-9 col-sm-12 col-12">
+
+                <div id="blog" class="single-post">
+
+                    <div class="post-item">
+                        <div class="post-item-wrap">
+                            <div class="post-image">
+                                <a href="#">
+                                    {% thumbnail item.image "1200x800" crop="center" as im %}
+                                    <img alt="" src="{{ im.url }}">
+                                    {% endthumbnail %}
+                                </a>
+                            </div>
+                            
+                            <div class="mt-5">
+                                {{item.body|safe}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

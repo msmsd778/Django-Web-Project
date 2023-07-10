@@ -1,0 +1,38 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}<title> گالری | داده پرداز اصفهان</title>{% endblock %}
+
+
+{% block content %}
+<section id="page-title" class="text-light" data-bg-parallax="{% static 'images/gallery.jpg' %}">
+    <div class="container">
+        <div style="z-index: -1" class="bg-overlay"></div>
+        <div class="page-title">
+            <h1>گالری تصاویر</h1>
+            <p>داده پرداز اصفهان</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="page-content">
+    <div class="container">
+
+        <div class="grid-layout grid-4-columns" data-margin="20" data-item="grid-item" data-lightbox="gallery">
+            {% for item in gallery %}
+            <div class="grid-item">
+                {% thumbnail item.image "1200x800" crop="center" as im %}
+                <a class="image-hover-zoom" href="{{item.image.url}}" data-lightbox="gallery-image"><img
+                        src="{{im.url}}"></a>
+                {% endthumbnail %}
+            </div>
+            {% endfor %}
+        
+        </div>
+
+    </div>
+</section>
+
+{% endblock content %}
